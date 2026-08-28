@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-900: #0a0a0b;
+  --color-ink-800: #0f1012;
+  --color-ink-700: #15171a;
+  --color-ink-600: #1c1f24;
+  --color-ink-500: #262a30;
+
+  --color-smoke-400: #9aa0a6;
+  --color-smoke-300: #cfd3d8;
+  --color-smoke-200: #e5e7eb;
+
+  --color-accent: #10b981;
+  --color-accent-glow: #34d399;
+
+  --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-serif: "Clash Display", ui-serif, Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  cursor: none !important;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main,
+section,
+header,
+footer {
+  background-color: transparent !important;
+}
+
+body {
+  color: #f4f4f5;
+  font-family: "Satoshi", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: "Clash Display", sans-serif;
+}
+
+.hero-title {
+  font-family: "Clash Display", sans-serif;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.95);
+}
+
+.hero-badge {
+  background: rgba(9, 9, 11, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-navbar {
+  animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  opacity: 0;
+}
+
+.animate-socials {
+  animation: slideRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+  opacity: 0;
+}
+
+.animate-hud-bottom {
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+  opacity: 0;
+}
+
+@media (pointer: coarse) {
+  *,
+  *::before,
+  *::after {
+    cursor: auto !important;
+  }
+}

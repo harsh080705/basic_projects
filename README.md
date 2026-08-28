@@ -15,6 +15,7 @@ Below is a detailed breakdown of all projects included in this repository, along
 | 3 | **Rock Paper Scissors Game** | [`rock-paper-scissors`](./rock-paper-scissors) | `HTML5`, `CSS3`, `JavaScript` | **DOM Manipulation & State**<br>• Scoreboard state tracking<br>• Random choice generator<br>• Dynamic UI win/loss feedback | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/rock-paper-scissors/) | [View README](./rock-paper-scissors/README.md) |
 | 4 | **Tic-Tac-Toe Game** | [`tic-tac-toe`](./tic-tac-toe) | `HTML5`, `CSS3`, `JavaScript` | **Game Algorithms & Logic**<br>• 2D/3D matrix win pattern matching<br>• Turn alternation logic (`O` vs `X`)<br>• Winner & draw detection overlays | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/tic-tac-toe/) | [View README](./tic-tac-toe/README.md) |
 | 5 | **Animated Landing Page** | [`animated-landing-page`](./animated-landing-page) | `HTML5`, `CSS3`, `JS`, `Node.js` | **Modern UI & Node.js Server**<br>• Glassmorphism panels & ambient glows<br>• Scroll reveals (`IntersectionObserver`)<br>• Custom Node.js HTTP server | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/animated-landing-page/) | [View README](./animated-landing-page/README.md) |
+| 6 | **React Library Showcase** | [`react-library`](./react-library) | `React 19`, `Vite`, `Tailwind v4`, `Framer Motion`, `Three.js` | **Modern React Component Library & Motion**<br>• React 19 SPA with Lenis smooth scroll<br>• Tailwind CSS v4 design tokens<br>• Vanta.js & Three.js WebGL background effects | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/react-library/) | [View README](./react-library/README.md) |
 
 > [!TIP]
 > **To enable these Live Demos on GitHub:** Go to repository **Settings** &rarr; **Pages**, set source branch to **`main`**, and click **Save**.
@@ -41,6 +42,10 @@ Below is a detailed breakdown of all projects included in this repository, along
 [Level 4: Advanced CSS & Local Node.js Tooling]
   └── animated-landing-page
        • Glassmorphism, CSS variables, IntersectionObserver animations, custom Node.js HTTP server.
+
+[Level 5: Modern React 19 & WebGL Graphics]
+  └── react-library
+       • React 19 + Vite, Tailwind v4 design system, Lenis smooth scrolling, Framer Motion v12, Three.js WebGL net shaders.
 ```
 
 ---
@@ -77,6 +82,12 @@ basic_projects/
 │   ├── app.js
 │   ├── server.js
 │   ├── style.css
+│   └── README.md
+├── react-library/              # React 19 + Vite + Tailwind v4 portfolio & UI library
+│   ├── src/
+│   ├── public/
+│   ├── vite.config.js
+│   ├── package.json
 │   └── README.md
 └── README.md                   # Master portfolio overview
 ```
