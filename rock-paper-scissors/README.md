@@ -53,3 +53,4 @@ rock-paper-scissors/
 - Add sound effects for win/loss/draw events.
 - Implement "Best of 5" or "Best of 10" tournament mode.
 - Add smooth flip/shake animations when choices are revealed.
+

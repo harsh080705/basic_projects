@@ -1,60 +1,112 @@
 const BASE_URL = "https://api.frankfurter.app/latest";
-const dropdowns = document.querySelectorAll(".dropdown select");
-const btn = document.querySelector("form button");
-const fromcurr = document.querySelector(".from select");
-const tocurr = document.querySelector(".to select");
-const msg = document.querySelector(".msg");
 
+const dropdowns = document.querySelectorAll(".dropdown select");
+const form = document.querySelector("form");
+const amountInput = document.querySelector(".amount input");
+const fromcurr = document.querySelector("#from-select");
+const tocurr = document.querySelector("#to-select");
+const msg = document.querySelector(".msg");
+const rateSubtext = document.querySelector(".rate-subtext");
+const swapBtn = document.querySelector("#swap-btn");
+
+// Populate dropdowns with currency codes
 for (let select of dropdowns) {
     for (let currcode in countryList) {
-        let newoption = document.createElement("option");
-        newoption.innerText = currcode;
-        newoption.value = currcode;
+        let newOption = document.createElement("option");
+        newOption.innerText = currcode;
+        newOption.value = currcode;
         if (select.name === "from" && currcode === "USD") {
-            newoption.selected = true;
+            newOption.selected = true;
         } else if (select.name === "to" && currcode === "INR") {
-            newoption.selected = true;
+            newOption.selected = true;
         }
-        select.append(newoption);
+        select.append(newOption);
     }
 
     select.addEventListener("change", (evt) => {
-        updateflag(evt.target);
+        updateFlag(evt.target);
+        updateExchangeRate();
     });
 }
 
-const updateflag = (element) => {
+// Update flag images dynamically
+const updateFlag = (element) => {
     let currcode = element.value;
-    let countrycode = countryList[currcode];
+    let countrycode = countryList[currcode] || "US";
     let newsrc = `https://flagsapi.com/${countrycode}/flat/64.png`;
     let img = element.parentElement.querySelector("img");
     img.src = newsrc;
 };
 
-btn.addEventListener("click", async (evt) => {
-    evt.preventDefault();
-    let amount = document.querySelector(".amount input");
-    let amtval = amount.value;
+// Swap currencies functionality
+swapBtn.addEventListener("click", () => {
+    let tempCode = fromcurr.value;
+    fromcurr.value = tocurr.value;
+    tocurr.value = tempCode;
 
-    if (amtval === "" || amtval < 1) {
+    updateFlag(fromcurr);
+    updateFlag(tocurr);
+    updateExchangeRate();
+});
+
+// Fetch exchange rate from Frankfurter API
+const updateExchangeRate = async () => {
+    let amtval = amountInput.value;
+
+    if (amtval === "" || amtval <= 0 || isNaN(amtval)) {
         amtval = 1;
-        amount.value = "1";
+        amountInput.value = "1";
     }
 
     const from = fromcurr.value;
     const to = tocurr.value;
 
     if (from === to) {
-        msg.innerText = "Both currencies are the same.";
+        msg.innerText = `${amtval} ${from} = ${amtval} ${to}`;
+        rateSubtext.innerText = `1 ${from} = 1 ${to}`;
         return;
     }
 
-    const URL = `${BASE_URL}?amount=${amtval}&from=${from}&to=${to}`;
+    msg.innerText = "Fetching rate...";
+    rateSubtext.innerText = "";
 
-    const response = await fetch(URL);
-    const data = await response.json();
-    const rate = data.rates[to];
-    const finalAmount = rate;
+    try {
+        const URL = `${BASE_URL}?amount=${amtval}&from=${from}&to=${to}`;
+        const response = await fetch(URL);
+        
+        if (!response.ok) {
+            throw new Error("Unable to fetch exchange rates");
+        }
 
-    msg.innerText = `${amtval} ${from} = ${finalAmount} ${to}`;
+        const data = await response.json();
+        const finalAmount = data.rates[to];
+        const singleRate = (finalAmount / amtval).toFixed(4);
+
+        msg.innerText = `${amtval} ${from} = ${finalAmount} ${to}`;
+        rateSubtext.innerText = `1 ${from} = ${singleRate} ${to}`;
+    } catch (error) {
+        console.error("Exchange rate error:", error);
+        msg.innerText = "Error fetching exchange rate";
+        rateSubtext.innerText = "Please check your network or try again later.";
+    }
+};
+
+// Form submit listener
+form.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    updateExchangeRate();
+});
+
+// Live input conversion (Debounced)
+let debounceTimer;
+amountInput.addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+        updateExchangeRate();
+    }, 400);
+});
+
+// Fetch initial rate on page load
+window.addEventListener("load", () => {
+    updateExchangeRate();
 });

@@ -64,3 +64,4 @@ amazon-clone/
 - Implement interactive shopping cart counter & modal preview.
 - Add product detail popup or page routing.
 - Make navigation dropdowns fully interactive.
+

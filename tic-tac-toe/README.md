@@ -52,3 +52,4 @@ tic-tac-toe/
 - Add Single Player mode against an Unbeatable AI (Minimax algorithm).
 - Add score counters for Player O and Player X.
 - Include custom mark icons and victory animations.
+

@@ -66,3 +66,4 @@ Simply double-click or open `animated-landing-page/index.html` in any web browse
 - Integrate interactive 3D WebGL background effects using Three.js.
 - Add dark/light theme toggle.
 - Expand interactive showcase elements into live preview modals.
+

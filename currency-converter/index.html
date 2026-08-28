@@ -3,40 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency Converter</title>
+    <title>Currency Converter - Modern Web App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Currency Converter</h1>
-        <h2>1USD=80INR</h2>
+    <div class="background-decor">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="card-header">
+            <i class="fa-solid fa-coins header-icon"></i>
+            <h1>Currency Converter</h1>
+            <p class="subtitle">Real-time international exchange rates</p>
+        </header>
+
         <form>
             <div class="amount">
-                <p>Enter amount</p>
-                <input value="100" type="text">
+                <label for="amount-input">Enter Amount</label>
+                <div class="input-wrapper">
+                    <span class="currency-symbol">$</span>
+                    <input id="amount-input" value="100" type="number" min="1" step="any" placeholder="100">
+                </div>
             </div>
+
             <div class="dropdown">
-                <div class="from">
-                    <p>From</p>
+                <div class="from select-group">
+                    <label>From</label>
                     <div class="select-container">
-                        <img src="https://flagsapi.com/US/flat/64.png">
-                        <select name="from"></select>
+                        <img src="https://flagsapi.com/US/flat/64.png" alt="From Flag" class="flag-img">
+                        <select name="from" id="from-select"></select>
                     </div>
                 </div>
-                <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                <div class="to">
-                    <p>To</p>
+
+                <button type="button" class="swap-btn" id="swap-btn" title="Swap Currencies" aria-label="Swap Currencies">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </button>
+
+                <div class="to select-group">
+                    <label>To</label>
                     <div class="select-container">
-                        <img src="https://flagsapi.com/IN/flat/64.png">
-                        <select name="to"></select>
+                        <img src="https://flagsapi.com/IN/flat/64.png" alt="To Flag" class="flag-img">
+                        <select name="to" id="to-select"></select>
                     </div>
                 </div>
             </div>
-            <button>Get Exchange Rate</button>
-            <p class="msg"></p>
+
+            <button type="submit" class="submit-btn" id="get-rate-btn">
+                <span>Get Exchange Rate</span>
+                <i class="fa-solid fa-calculator"></i>
+            </button>
+
+            <div class="msg-box">
+                <p class="msg">Fetching latest rate...</p>
+                <span class="rate-subtext"></span>
+            </div>
         </form>
-    </div>
+    </main>
+
     <script src="codes.js"></script>
     <script src="app.js"></script>
 </body>
