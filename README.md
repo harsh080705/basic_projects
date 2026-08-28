@@ -4,17 +4,20 @@ Welcome to my **Basic Projects** collection! This repository contains a structur
 
 ---
 
-## 🗺️ Master Project Bifurcation Matrix
+## 🌐 Live Demos & Master Bifurcation Matrix
 
-Below is a detailed breakdown of all projects included in this repository:
+Below is a detailed breakdown of all projects included in this repository, along with live demo links powered by **GitHub Pages**:
 
-| # | Project Name | Directory | Key Tech Stack | Category & Primary Concepts Learned | Link to Documentation |
-| :-: | :--- | :--- | :--- | :--- | :-: |
-| 1 | **Amazon Home Page Clone** | [`amazon-clone`](./amazon-clone) | `HTML5`, `CSS3`, `FontAwesome` | **UI / Layout Cloning**<br>• Multi-level header & nav styling<br>• Product grid positioning<br>• Comprehensive footer layout | [View README](./amazon-clone/README.md) |
-| 2 | **Real-Time Currency Converter** | [`currency-converter`](./currency-converter) | `HTML5`, `CSS3`, `JS (ES6)`, `APIs` | **API Integration & Async JS**<br>• Real-time REST API consumption (`Frankfurter API`)<br>• Dynamic country flags (`FlagsAPI`)<br>• Form handling & validation | [View README](./currency-converter/README.md) |
-| 3 | **Rock Paper Scissors Game** | [`rock-paper-scissors`](./rock-paper-scissors) | `HTML5`, `CSS3`, `JavaScript` | **DOM Manipulation & State**<br>• Scoreboard state tracking<br>• Random choice generator<br>• Dynamic UI win/loss feedback | [View README](./rock-paper-scissors/README.md) |
-| 4 | **Tic-Tac-Toe Game** | [`tic-tac-toe`](./tic-tac-toe) | `HTML5`, `CSS3`, `JavaScript` | **Game Algorithms & Logic**<br>• 2D/3D matrix win pattern matching<br>• Turn alternation logic (`O` vs `X`)<br>• Winner & draw detection overlays | [View README](./tic-tac-toe/README.md) |
-| 5 | **Animated Landing Page** | [`animated-landing-page`](./animated-landing-page) | `HTML5`, `CSS3`, `JS`, `Node.js` | **Modern UI & Node.js Server**<br>• Glassmorphism panels & ambient glows<br>• Scroll reveals (`IntersectionObserver`)<br>• Custom Node.js HTTP server | [View README](./animated-landing-page/README.md) |
+| # | Project Name | Directory | Key Tech Stack | Category & Primary Concepts Learned | Live Demo | Docs |
+| :-: | :--- | :--- | :--- | :--- | :-: | :-: |
+| 1 | **Amazon Home Page Clone** | [`amazon-clone`](./amazon-clone) | `HTML5`, `CSS3`, `FontAwesome` | **UI / Layout Cloning**<br>• Multi-level header & nav styling<br>• Product grid positioning<br>• Comprehensive footer layout | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/amazon-clone/) | [View README](./amazon-clone/README.md) |
+| 2 | **Real-Time Currency Converter** | [`currency-converter`](./currency-converter) | `HTML5`, `CSS3`, `JS (ES6)`, `APIs` | **API Integration & Async JS**<br>• Real-time REST API consumption (`Frankfurter API`)<br>• Dynamic country flags (`FlagsAPI`)<br>• Form handling & validation | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/currency-converter/) | [View README](./currency-converter/README.md) |
+| 3 | **Rock Paper Scissors Game** | [`rock-paper-scissors`](./rock-paper-scissors) | `HTML5`, `CSS3`, `JavaScript` | **DOM Manipulation & State**<br>• Scoreboard state tracking<br>• Random choice generator<br>• Dynamic UI win/loss feedback | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/rock-paper-scissors/) | [View README](./rock-paper-scissors/README.md) |
+| 4 | **Tic-Tac-Toe Game** | [`tic-tac-toe`](./tic-tac-toe) | `HTML5`, `CSS3`, `JavaScript` | **Game Algorithms & Logic**<br>• 2D/3D matrix win pattern matching<br>• Turn alternation logic (`O` vs `X`)<br>• Winner & draw detection overlays | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/tic-tac-toe/) | [View README](./tic-tac-toe/README.md) |
+| 5 | **Animated Landing Page** | [`animated-landing-page`](./animated-landing-page) | `HTML5`, `CSS3`, `JS`, `Node.js` | **Modern UI & Node.js Server**<br>• Glassmorphism panels & ambient glows<br>• Scroll reveals (`IntersectionObserver`)<br>• Custom Node.js HTTP server | [🔗 Live Demo](https://harsh080705.github.io/basic_projects/animated-landing-page/) | [View README](./animated-landing-page/README.md) |
+
+> [!TIP]
+> **To enable these Live Demos on GitHub:** Go to repository **Settings** &rarr; **Pages**, set source branch to **`main`**, and click **Save**.
 
 ---
 
