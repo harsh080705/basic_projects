@@ -1,4 +1,5 @@
-const BASE_URL = "https://api.frankfurter.app/latest";
+const BASE_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
+const FALLBACK_URL = "https://latest.currency-api.pages.dev/v1/currencies";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const form = document.querySelector("form");
@@ -25,7 +26,6 @@ for (let select of dropdowns) {
 
     select.addEventListener("change", (evt) => {
         updateFlag(evt.target);
-        updateExchangeRate();
     });
 }
 
@@ -46,10 +46,9 @@ swapBtn.addEventListener("click", () => {
 
     updateFlag(fromcurr);
     updateFlag(tocurr);
-    updateExchangeRate();
 });
 
-// Fetch exchange rate from Frankfurter API
+// Fetch exchange rate with multi-provider fallback support
 const updateExchangeRate = async () => {
     let amtval = amountInput.value;
 
@@ -71,42 +70,76 @@ const updateExchangeRate = async () => {
     rateSubtext.innerText = "";
 
     try {
-        const URL = `${BASE_URL}?amount=${amtval}&from=${from}&to=${to}`;
-        const response = await fetch(URL);
-        
-        if (!response.ok) {
-            throw new Error("Unable to fetch exchange rates");
+        const fromLower = from.toLowerCase();
+        const toLower = to.toLowerCase();
+        let data = null;
+        let rate = null;
+
+        // 1. Try primary API (jsDelivr CDN - Fawaz Ahmed Currency API)
+        try {
+            const response = await fetch(`${BASE_URL}/${fromLower}.json`);
+            if (response.ok) {
+                data = await response.json();
+                rate = data[fromLower]?.[toLower];
+            }
+        } catch (e) {
+            console.warn("Primary API failed, attempting secondary API...", e);
         }
 
-        const data = await response.json();
-        const finalAmount = data.rates[to];
-        const singleRate = (finalAmount / amtval).toFixed(4);
+        // 2. Try secondary API (Cloudflare Pages CDN)
+        if (rate === null || rate === undefined) {
+            try {
+                const response = await fetch(`${FALLBACK_URL}/${fromLower}.json`);
+                if (response.ok) {
+                    data = await response.json();
+                    rate = data[fromLower]?.[toLower];
+                }
+            } catch (e) {
+                console.warn("Secondary API failed, attempting Frankfurter API...", e);
+            }
+        }
 
-        msg.innerText = `${amtval} ${from} = ${finalAmount} ${to}`;
+        // 3. Try tertiary API (Frankfurter API)
+        if (rate === null || rate === undefined) {
+            const frankfurterUrl = `https://api.frankfurter.app/latest?amount=1&from=${from}&to=${to}`;
+            const response = await fetch(frankfurterUrl);
+            if (response.ok) {
+                const frankfurterData = await response.json();
+                rate = frankfurterData.rates[to];
+            }
+        }
+
+        if (rate === null || rate === undefined) {
+            throw new Error(`Exchange rate unavailable for ${from} to ${to}`);
+        }
+
+        const finalAmount = amtval * rate;
+        const formattedAmount = finalAmount.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 4
+        });
+        const singleRate = rate.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 4
+        });
+
+        msg.innerText = `${amtval} ${from} = ${formattedAmount} ${to}`;
         rateSubtext.innerText = `1 ${from} = ${singleRate} ${to}`;
     } catch (error) {
         console.error("Exchange rate error:", error);
         msg.innerText = "Error fetching exchange rate";
-        rateSubtext.innerText = "Please check your network or try again later.";
+        rateSubtext.innerText = "Please check your network or try another currency pair.";
     }
 };
 
-// Form submit listener
+// Form submit listener (Only conversion trigger when user clicks "Get Exchange Rate")
 form.addEventListener("submit", (evt) => {
     evt.preventDefault();
     updateExchangeRate();
 });
 
-// Live input conversion (Debounced)
-let debounceTimer;
-amountInput.addEventListener("input", () => {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-        updateExchangeRate();
-    }, 400);
-});
-
-// Fetch initial rate on page load
+// Initialize flags on load without fetching rates automatically
 window.addEventListener("load", () => {
-    updateExchangeRate();
+    updateFlag(fromcurr);
+    updateFlag(tocurr);
 });
