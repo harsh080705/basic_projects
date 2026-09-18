@@ -1,70 +1,66 @@
-# Basic Projects | Frontend Development Portfolio and Learning Repository
+# 🌐 Web Engineering & Frontend Projects Showcase
 
-This repository is a curated collection of web development projects created during the early stages of frontend learning. It showcases hands-on experience with HTML, CSS, JavaScript, UI design, responsive layouts, DOM manipulation, and modern React-based development.
+![HTML5](https://img.shields.io/badge/HTML5-Modern_Markup-E34F26?style=flat-square&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-Flexbox_%26_Grid-1572B6?style=flat-square&logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript)
+![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
-> GitHub: https://github.com/harsh080705/basic_projects
-
-## ATS-Friendly Summary
-
-Frontend development portfolio covering foundational web development projects and modern UI implementation. This repository demonstrates growth from HTML/CSS layout work to interactive JavaScript and React-based interfaces, highlighting adaptability, design sense, and progressive engineering skills.
-
-## Keywords
-
-HTML5, CSS3, JavaScript, Frontend Development, Responsive Design, UI/UX, DOM Manipulation, React, Vite, Tailwind CSS, Web Development, Portfolio Projects
-
-## Included Projects
-
-- Amazon Home Page Clone
-- Currency Converter
-- Rock Paper Scissors Game
-- Tic-Tac-Toe Game
-- Animated Landing Page
-- React Library Showcase
-
-## Core Skills Demonstrated
-
-- Semantic HTML structure
-- CSS Flexbox and Grid
-- JavaScript interactivity
-- API integration
-- DOM manipulation
-- UI/UX design patterns
-- React + Vite development
-- Responsive design
-- Animation and motion
-
-## Project Structure
-
-```bash
-basic_projects/
-├── amazon-clone/
-├── currency-converter/
-├── rock-paper-scissors/
-├── tic-tac-toe/
-├── animated-landing-page/
-├── react-library/
-└── README.md
-```
-
-## Quick Start
-
-Open any project folder in the browser or run local servers as required.
-
-For example:
-
-```bash
-cd animated-landing-page
-node server.js
-```
-
-## Why This Repository Matters
-
-This repo is especially strong for ATS because it shows a clear learning progression and practical exposure to modern frontend technologies. It reflects readiness for junior frontend roles and a habit of building, testing, and iterating on real interfaces.
-
-## License
-
-MIT
+> A curated collection of core web development projects, algorithm implementations, and interactive frontend applications demonstrating mastery in HTML5, CSS3, ES6+ JavaScript, DOM manipulation, and React.
 
 ---
 
-A portfolio of HTML, CSS, JavaScript, and React work demonstrating continuous frontend learning and product design practice.
+## 🎯 ATS & Resume Highlights (Copy & Paste for Resume)
+
+> - **Constructed Portfolio of Frontend Web Applications** utilizing **vanilla JavaScript (ES6+), HTML5, and CSS3**, implementing responsive layouts with Flexbox/Grid and custom DOM manipulation.
+> - **Built Dynamic Currency Exchange Application** integrating external REST APIs, dynamic exchange rate calculation, and asynchronous error handling.
+> - **Engineered Modular React Component Showcase** using **Vite and Tailwind CSS**, featuring interactive state management and component reusability patterns.
+
+---
+
+## 📂 Included Projects & Applications
+
+| Project | Technologies | Highlights |
+|:---|:---|:---|
+| 🛒 **Amazon Clone** | HTML5, CSS Flexbox/Grid, JS | E-commerce layout, navigation bar, hero banner, product grid |
+| 💱 **Currency Converter** | JavaScript ES6+, REST API, DOM | Live exchange rate fetching, dynamic currency selector, input validation |
+| 🎮 **Rock Paper Scissors** | JavaScript, CSS Animations | Game state engine, score tracking, responsive UI feedback |
+| ⭕ **Tic-Tac-Toe** | Vanilla JS, State Management | Win-condition evaluation matrix, turn tracking, board reset |
+| ✨ **Animated Landing Page** | HTML/CSS, Node.js, Animations | Smooth transitions, scroll triggers, custom keyframe animations |
+| ⚛️ **React Library Showcase** | React 18, Vite, Tailwind CSS | Component architecture, state hooks, responsive styling |
+
+---
+
+## 📁 Repository Structure
+
+```
+basic_projects/
+├── amazon-clone/          # E-commerce UI clone
+├── currency-converter/    # Async API exchange rate converter
+├── rock-paper-scissors/   # Interactive browser game
+├── tic-tac-toe/           # Logic & DOM state game engine
+├── animated-landing-page/ # CSS3 & JS keyframe animation showcase
+├── react-library/         # React component suite
+└── README.md
+```
+
+---
+
+## 🚀 Quick Start
+
+To preview any application locally:
+
+```bash
+git clone https://github.com/harsh080705/basic_projects.git
+cd basic_projects
+
+# Open any project folder (e.g. currency-converter)
+cd currency-converter
+# Open index.html in your browser or run live server
+```
+
+---
+
+## 📝 License
+
+Distributed under the **MIT License**. See `LICENSE` for details.
